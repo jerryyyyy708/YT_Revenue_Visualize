@@ -26,7 +26,7 @@ function removeAllChild(parent){
 }
 
 plot.onchange = () => {
-    d3.csv("finalfinal.csv",d3.autoType).then((rawdata) => {
+    d3.csv("YT_Revenue.csv",d3.autoType).then((rawdata) => {
         removeAllChild(button)
         chart = d3.select("#chart")
         chart.selectAll("*").remove()
