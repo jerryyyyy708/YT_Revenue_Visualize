@@ -14,14 +14,6 @@ d3.svg("coverpage.svg").then(function(xml) {
 const svg = d3.select("#chart");
 title = '<======= Please Select a Figure'
 var g = svg.append("g").attr("transform",`translate(${margin.left},${margin.top})`);
-  
-  g.append("text")
-      .text(title)
-      .attr("y", "-30")
-      .attr("x", `${(width) / 2}`)
-      .attr("text-anchor", "middle")
-      .attr("font-size", "2em")
-      .attr("font-weight", "bold");
 
 function removeAllChild(parent){
     while (parent.hasChildNodes()) {
