@@ -36,8 +36,11 @@ plot.onchange = () => {
         else if(plot.value === "histo"){
             create_histo(chart, rawdata)
         }
-        else if(plot.value === "templaete"){
+        else if(plot.value === "template"){
           template_plot(chart, rawdata)
+        }
+        else if(plot.value === "coorv1"){
+          coor_plotv1(chart,rawdata)
         }
     })
 }
@@ -68,6 +71,286 @@ function template_plot(tmp, rawdata){
   data = filter_data(rawdata) //取得處理好的資料集
   //建立各種按鈕、選單， 可以用button.appendChild()加到下面那排
   //剩下的
+}
+
+function coor_plotv1(lc,rawdata){
+  attributes = rawdata.columns
+  data = filter_data(rawdata)
+  lctitle = 'Parallel Coordinate Plots'
+  var g = lc.append("g").attr("transform",`translate(${margin.left},${margin.top})`);
+  
+  g.append("text")
+      .text(lctitle)
+      .attr("y", "-30")
+      .attr("x", `${(width) / 2}`)
+      .attr("text-anchor", "middle")
+      .attr("font-size", "2em")
+      .attr("font-weight", "bold");
+
+  select_lc1 = document.createElement('select')
+  select_lc1.id = 'lcattr1';//select_attr.style.textAlign = ''
+  button.appendChild(select_lc1)
+  //options of select box
+  //set default
+  option = document.createElement('option')
+  option.text = '--select attribute--'
+  option.selected = true
+  option.disabled = true
+  select_lc1.appendChild(option)
+
+  for (i=0;i<attributes.length;i++){//need delete genre
+    if(attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
+      continue
+    }
+    let option = document.createElement('option')
+    option.value = attributes[i]
+    option.text = attributes[i]
+    if(i === 0){
+      option.selected = true
+    }
+    select_lc1.appendChild(option)
+  }
+  //padding between selectbox and button
+  space = document.createTextNode(" ")
+  button.appendChild(space)
+
+  select_lc2 = document.createElement('select')
+  select_lc2.id = 'lcattr2';//select_attr.style.textAlign = ''
+  button.appendChild(select_lc2)
+  //options of select box
+  //set default
+  option = document.createElement('option')
+  option.text = '--select attribute--'
+  option.selected = true
+  option.disabled = true
+  select_lc2.appendChild(option)
+
+  for (i=0;i<attributes.length;i++){//need delete genre
+    if(attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
+      continue
+    }
+    let option = document.createElement('option')
+    option.value = attributes[i]
+    option.text = attributes[i]
+    if(i === 8){
+      option.selected = true
+    }
+    select_lc2.appendChild(option)
+  }
+  //padding between selectbox and button
+  space = document.createTextNode(" ")
+  button.appendChild(space)
+
+  select_lc3 = document.createElement('select')
+  select_lc3.id = 'lcattr3';//select_attr.style.textAlign = ''
+  button.appendChild(select_lc3)
+  //options of select box
+  //set default
+  option = document.createElement('option')
+  option.text = '--select attribute--'
+  option.selected = true
+  option.disabled = true
+  select_lc3.appendChild(option)
+
+  for (i=0;i<attributes.length;i++){//need delete genre
+    if(attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
+      continue
+    }
+    let option = document.createElement('option')
+    option.value = attributes[i]
+    option.text = attributes[i]
+    if(i === 9){
+      option.selected = true
+    }
+    select_lc3.appendChild(option)
+  }
+  //padding between selectbox and button
+  space = document.createTextNode(" ")
+  button.appendChild(space)
+
+  select_lc4 = document.createElement('select')
+  select_lc4.id = 'lcattr4';//select_attr.style.textAlign = ''
+  button.appendChild(select_lc4)
+  //options of select box
+  //set default
+  option = document.createElement('option')
+  option.text = '--select attribute--'
+  option.selected = true
+  option.disabled = true
+  select_lc4.appendChild(option)
+
+  for (i=0;i<attributes.length;i++){//need delete genre
+    if(attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
+      continue
+    }
+    let option = document.createElement('option')
+    option.value = attributes[i]
+    option.text = attributes[i]
+    if(i === 10){
+      option.selected = true
+    }
+    select_lc4.appendChild(option)
+  }
+  //padding between selectbox and button
+  space = document.createTextNode(" ")
+  button.appendChild(space)
+
+  select_lc5 = document.createElement('select')
+  select_lc5.id = 'lcattr5';//select genre
+  button.appendChild(select_lc5)
+  
+  option = document.createElement('option')
+  option.text = '10%'
+  option.selected = true
+  option.value = 10 
+  select_lc5.appendChild(option)
+  //options of select box
+  //set default
+  for (i=2;i<11;i++){//need delete genre
+    option = document.createElement('option')
+    option.value = i*10
+    option.text = `${i*10}%`
+    select_lc5.appendChild(option)
+  }
+
+  space = document.createTextNode(" ")
+  button.appendChild(space)
+
+  select_lc6 = document.createElement('select')
+  select_lc6.id = 'lcattr6';//select genre
+  button.appendChild(select_lc6)
+  
+  option = document.createElement('option')
+  option.text = '--mode--'
+  option.selected = true
+  option.disabled = true 
+  select_lc6.appendChild(option)
+  //options of select box
+  //set default
+  modes = ['top','all']
+  for (i=0;i<modes.length;i++) {
+    option = document.createElement('option')
+    option.value = modes[i]
+    option.text = modes[i]
+    option.selected = true
+    select_lc6.appendChild(option)
+  }
+  //padding between selectbox and button
+  space = document.createTextNode(" ")
+  button.appendChild(space)
+
+  lsbutton = document.createElement('button')
+  lsbutton.innerHTML = 'filter'
+  lsbutton.id = 'scabutton'
+  button.appendChild(lsbutton)
+  lsbutton.onclick = function() {
+    selectedlc1 = select_lc1.value
+    selectedlc2 = select_lc2.value
+    selectedlc3 = select_lc3.value
+    selectedlc4 = select_lc4.value
+    selectedlc5 = select_lc5.value
+    selectedlc6 = select_lc6.value
+    const axises1 = new Set()
+    axises1.add(selectedlc1)
+    axises1.add(selectedlc2)
+    axises1.add(selectedlc3)
+    axises1.add(selectedlc4)
+    if (axises1.size < 4) {
+      alert("please choose 4 different attributes");
+      return false;
+    }
+
+    if(selectedlc6 != 'all' && selectedlc6 !='top'){
+      if(admin)
+        selectedlc6 = 'top'
+      else{
+        alert("please choose a ranking mode")
+        return
+      }
+    }
+
+    pops = d3.map(data,function(d){
+      return d['YouTube ad revenue (TWD)']
+    })
+    pops.sort(function(a,b){return a-b});
+    pl = pops.length-1
+    pind = Math.round(pl-(selectedlc5/100)*pl)
+    pval = pops[pind]
+    datan = data.filter(function(d){return d['YouTube ad revenue (TWD)']>=pval})
+    if(selectedlc6 === 'all')
+      color = 'blue'
+    else
+      color = 'transparent'
+      lc.selectAll("*").remove();
+      title = "Parallel Coordinate Plots";
+  
+    var g = lc
+      .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+  
+    g.append("text")
+      .text(title)
+      .attr("y", "-30")
+      .attr("x", `${(width) / 2}`)
+      .attr("text-anchor", "middle")
+      .attr("font-size", "2em")
+      .attr("font-weight", "bold");
+    lcas = [selectedlc1, selectedlc2, selectedlc3, selectedlc4]
+    console.log(lcas)
+      var y = {};
+      //y scales
+      for (i in lcas) {
+        scale = lcas[i];
+        y[scale] = d3.scaleLinear().domain(d3.extent(data, d=>d[scale]))
+          .range([height, 0]);
+      }
+  
+      //x scale
+      x = d3.scalePoint().range([0, width]).padding(1).domain(lcas);
+      
+      //lines
+      g.selectAll("lines")
+        .data(data)
+        .enter()
+        .append("path")
+        .attr("d", d => d3.line()(
+          lcas.map( p => {return [x(p), y[p](d[p])]})
+          )
+        )
+        .style("fill", "none")
+        .style("stroke", (d) => {
+          if(d['YouTube ad revenue (TWD)'] >= pval)
+            return "red"
+          else
+            return color
+        })
+        .style("opacity", (d)=>{
+          if(d['YouTube ad revenue (TWD)'] >= pval)
+            return 0.5
+          else
+            return 0.15
+        });
+  
+        g.selectAll("xAxis")
+        .data(lcas)
+        .enter()
+        .append("g")
+        .attr("transform", d=>{ 
+          return `translate(${x(d)})`
+        })
+        .each(function (d) {
+          d3.select(this).call(d3.axisLeft().scale(y[d]));
+        })
+        .append("text")
+        .style("text-anchor", "middle")
+        .attr("y", -9)
+        .text(d => d)
+        .style("fill", "black");
+    
+    //datan2 = data.filter(function(d){return d['YouTube ad revenue (TWD)'] < pval})
+  }
+  lsbutton.click()
+  
 }
 
 function create_histo(hs, rawdata){
