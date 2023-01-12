@@ -7,6 +7,10 @@ const width = +bc.attr("width") - margin.left - margin.right;
 const height = +bc.attr("height") - margin.top - margin.bottom;
 admin = false
 
+d3.svg("coverpage.svg").then(function(xml) {
+  d3.select("#chart").node().appendChild(xml.documentElement);
+});
+
 const svg = d3.select("#chart");
 title = '<======= Please Select a Figure'
 var g = svg.append("g").attr("transform",`translate(${margin.left},${margin.top})`);
