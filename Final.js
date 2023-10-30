@@ -43,9 +43,6 @@ plot.onchange = () => {
 
 function filter_data(rawdata){
     data = rawdata.filter(function(d){
-        if(d[attributes[17]] == 0) return false;
-        if(d['Views']>50000) return false;
-        if(d['Comments added']>200) return false;
         return true
     })
     
