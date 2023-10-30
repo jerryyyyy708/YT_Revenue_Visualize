@@ -51,12 +51,7 @@ function filter_data(rawdata){
     
     for(i=0;i<data.length;i++){
       //console.log(data[i]['Average view duration'])
-      nums = data[i]['Average view duration (min)'].split(':')
-      hr = parseInt(nums[0])
-      mn = parseInt(nums[1])
-      sc = parseInt(nums[2])
-      //console.log(hr,mn,sc)
-      data[i]['Average view duration (min)'] = mn + sc/60
+      data[i]['Average view duration (min)'] = data[i]['Average view duration (min)']/60
     }
     return data
 }
