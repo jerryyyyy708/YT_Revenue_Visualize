@@ -87,7 +87,7 @@ function coor_plotv1(lc,rawdata){
   select_lc1.appendChild(option)
 
   for (i=0;i<attributes.length;i++){//need delete genre
-    if(attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
+    if(attributes[i] === "Video" || attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
       continue
     }
     let option = document.createElement('option')
@@ -114,7 +114,7 @@ function coor_plotv1(lc,rawdata){
   select_lc2.appendChild(option)
 
   for (i=0;i<attributes.length;i++){//need delete genre
-    if(attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
+    if(attributes[i] === "Video" || attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
       continue
     }
     let option = document.createElement('option')
@@ -141,7 +141,7 @@ function coor_plotv1(lc,rawdata){
   select_lc3.appendChild(option)
 
   for (i=0;i<attributes.length;i++){//need delete genre
-    if(attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
+    if(attributes[i] === "Video" || attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
       continue
     }
     let option = document.createElement('option')
