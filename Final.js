@@ -168,7 +168,7 @@ function coor_plotv1(lc,rawdata){
   select_lc4.appendChild(option)
 
   for (i=0;i<attributes.length;i++){//need delete genre
-    if(attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
+    if(attributes[i] === "Video" || attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
       continue
     }
     let option = document.createElement('option')
@@ -367,7 +367,7 @@ function create_histo(hs, rawdata){
   select_hs1.appendChild(option)
 
   for (i=0;i<attributes.length;i++){//need delete genre
-    if(attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
+    if(attributes[i] === "Video" || attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
       continue
     }
     let option = document.createElement('option')
@@ -489,7 +489,7 @@ function create_scatter(sc, rawdata){
     select_scattr1.appendChild(option)
 
     for (i=0;i<attributes.length;i++){//need delete genre
-        if(attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
+        if(attributes[i] === "Video" || attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
             continue
         }
         option = document.createElement('option')
@@ -516,7 +516,7 @@ function create_scatter(sc, rawdata){
     select_scattr2.appendChild(option)
 
     for (i=0;i<attributes.length;i++){//need delete genre
-        if(attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
+        if(attributes[i] === "Video" || attributes[i] === "Video publish time" || attributes[i] === "Content" || attributes[i] === "Video title"){
             continue
         }
         option = document.createElement('option')
